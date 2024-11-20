@@ -1,0 +1,218 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}.body{
+    display: flex;
+    height: 60%;
+    margin-bottom: 1rem;
+}
+.leftcontainer{
+    width: 50%;
+    text-align: center;
+}
+.logo{
+    width:6rem;
+    height: 2rem;
+    margin-top: 7rem;
+}
+.title{
+    font-family: "Poppins",sans-serif;
+    font-weight: 600;
+    padding-right: 6.5rem;
+}
+.subtitle{
+    font-family: "Poppins",sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #313957;
+    display: block;
+}
+.instruction{
+    font-family: "Poppins",sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #313957;
+    padding-right: 8rem;
+}
+.form{
+    margin-top: 2rem;
+    padding-right: 7rem;
+}
+.label{
+    font-family: "Poppins", "sans-serif";
+    font-weight: 400;
+    font-size: 10px;
+    padding-right: 7rem ;
+    color: #0C1421;
+}
+.input{
+    border-radius: 100px;
+    border: 1px solid #000000;
+    padding: 10px 1rem;
+    width: 20rem;
+    margin-left: 12rem;
+    margin-bottom: 1rem;
+    color:#8897AD;
+    font-family: "Poppins", "sans-serif";
+    font-weight: 400;
+}
+.forgotPassword a{
+    color: #FC8A06;
+    font-family: "Poppins", "sans-serif";
+    font-weight: 400;
+    text-decoration: none;
+    padding-left: 19rem;
+    font-size: 14px;
+}
+.button{
+    border-radius: 100px;
+    background-color: #FC8A06;
+    color: #FFFFFF;
+    font-family: "Poppins", "sans-serif";
+    font-weight: 600;
+    width: 22rem;
+    margin-left: 4rem;
+    padding: 1rem 0;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    border: none;
+}
+.signUpPrompt a{
+    text-decoration: none;
+    color: #FC8A06;
+    font-family: "Poppins", "sans-serif";
+    font-weight: 400;
+    font-size: 14px;
+}
+.signUpPrompt{
+    font-family: "Poppins", "sans-serif";
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 3rem ;
+}
+.rightcontainer{
+    width: 50%;
+}
+.ArtImage{
+    width: 45rem;
+    height: 45rem;
+}
+.footer{
+    background-color: #D9D9D9;
+}
+.footerContainer {
+    display: flex;
+    justify-content: space-between;
+}
+.leftSection {
+    padding-left: 3rem;
+    padding-top: 0rem;
+}
+.companyInfo{
+    font-size: 14px;
+    font-family: "Poppins", "sans-serif";
+    font-weight: 400;
+}
+.logo2{
+    width: 16rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+.appStoreImage{
+    margin-bottom: 1rem;
+}
+.centerSection h4{
+    font-family: "Poppins",sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 2rem;
+    color:#03081F;
+    margin-bottom: 2rem;
+}
+.emailInput{
+    border-radius: 120px;
+    font-family: "Poppins",sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    padding: 10px;
+    width: 15rem;
+    border: none;
+}
+.subscribe{
+    margin-bottom: 1rem;
+}
+.subscribeButton{
+    background-color: #FC8A06;
+    color: #FFFFFF;
+    border-radius: 120px;
+    border: none;
+    width: 7rem;
+    padding: 10px;
+    font-family: "Poppins",sans-serif;
+    font-weight: 500;
+}
+.policyText{
+    font-family: "Poppins",sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color:#03081F;
+    margin-bottom: 1rem;
+}
+.policyText a{
+    font-family: "Poppins",sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color:#03081F;
+}
+.socialIcon{
+    margin-left: 1rem;
+}
+.rightSection{
+   display: flex;
+   justify-content: space-around;
+}
+.rightSection h4{
+    font-family: "Poppins",sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+}
+.legalLinks{
+    margin-top: 3rem;
+    list-style-type: none;
+    margin-left: 1rem;
+    
+}
+.legalLinks a{
+    font-family: "Poppins",sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #000000;
+    margin-left: 4rem;
+    margin-bottom: 2rem;
+}
+.footerBottom{
+    background-color: #03081F;
+    display: flex;
+    justify-content: space-around;
+    gap:10rem
+}
+.footerBottom p{
+    color: #FFFFFF;
+    font-family: "Poppins",sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    margin: 1rem 0;
+}
+.footerLinks{
+    margin: 1rem 0;
+}
+.footerLinks a{
+    text-decoration: none;
+    font-family: "Poppins",sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #FFFFFF;
+    margin-right: 2rem;
+}

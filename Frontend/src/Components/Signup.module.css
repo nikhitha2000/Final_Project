@@ -98,6 +98,7 @@
 .ArtImage{
     width: 45rem;
     height: 45rem;
+    object-fit: cover;
 }
 .footer{
     background-color: #D9D9D9;
@@ -233,4 +234,73 @@
     padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }  
+}
+
+@media screen and (max-width: 768px) {
+    .body {
+        display: flex;
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+        height: auto;
+    }
+
+    .leftcontainer,
+    .rightcontainer {
+        width: 100%;
+        text-align: center;
+    }
+
+    .logo {
+        width: 4rem; /* Smaller logo on mobile */
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .input {
+        width: 80%; /* Input fields should fill most of the screen */
+        margin-left: 10%;
+    }
+
+    .button {
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .ArtImage {
+        width: 100%; /* Make the image fit well within the screen */
+        height: auto;
+    }
+    .footerContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footerBottom {
+        background-color: #03081F;
+        display: flex;
+        justify-content: space-between;
+        gap: 10rem;
+        padding: 2rem 0;
+      }
+
+    .footerLinks {
+        display: flex;
+        justify-content: center;
+    }
+
+    .footerLinks a {
+        margin-right: 1rem;
+    }
+
+    .socialIcon {
+        margin-left: 0.5rem;
+    }
+
+    /* Optional: Styling for footer elements */
+    .companyInfo,
+    .emailInput,
+    .subscribeButton {
+        font-size: 12px;
+    }
+}

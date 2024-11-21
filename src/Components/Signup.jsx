@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import logo from "../assets/LOGO 1.png";
-import styles from "../Components/Sigin.module.css";
+import styles from "../Components/Signup.module.css";
 import Art from "../assets/Art.png";
 import logo2 from "../assets/LOGO 2.png";
 import appstore from "../assets/appstore.png";
@@ -10,10 +10,13 @@ import instagramIcon from "../assets/Instagram.png";
 import tiktokIcon from "../assets/Tiktok.png";
 import SnapchatIcon from "../assets/Snapchat.png";
 import { useNavigate } from "react-router-dom";
-function Sigin() {
+
+function Signup() {
   const [toastMessage, setToastMessage] = useState("");
   const [formErrors, setFormErrors] = useState({});
   const [formData, setFormData] = useState({
+    name: "",
+    phonenumber: "",
     email: "",
     password: "",
   });
@@ -29,46 +32,57 @@ function Sigin() {
 
   const validateForm = () => {
     const errors = {};
+    if (!formData.name) errors.name = "*Name is required";
+    if (!formData.phonenumber) {
+      errors.phonenumber = "*Phone Number is required";
+    } else if (!/^[6789]\d{9}$/.test(formData.phonenumber)) {
+      errors.phonenumber = "*Phone number must start with 6, 7, 8, or 9 and be 10 digits long";
+    }
     if (!formData.email) errors.email = "*Email is required";
     if (!formData.password) {
       errors.password = "*Password is required";
-    } else if (formData.password.length < 8) {
-      errors.password =
-        "*Password must be at least 8 characters long";
     }
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm()) {
+      return; 
+    }
+    const formData = { email: formData.email, password: formData.password };
+    if (validateForm()) {
+      try {
+        const response = await fetch("http://localhost:5000/api/auth/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
 
-    const formDataToSend = { 
-      email: formData.email, 
-      password: formData.password 
-    };
-  
-    try {
-      const response = await fetch("http://localhost:5000/api/auth/signin", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formDataToSend),
-      });
-  
-      const data = await response.json();
-  
-      if (response.ok) {
-        localStorage.setItem("token", data.token); // Store the token
-        navigate("/home");  
-      } else {
-        setToastMessage(data.message); // Show error message from backend
+        const data = await response.json();
+
+        if (response.ok) {
+          setToastMessage("Registration successful!"); 
+          setFormData({
+            name: "",
+            phonenumber: "",
+            email: "",
+            password: "",
+          });
+          navigate("/signin");
+        } else {
+          setToastMessage(data.message);
+        }
+      } catch (error) {
+        setToastMessage("Something went wrong, please try again."); 
       }
-    } catch (error) {
-      setToastMessage("Something went wrong, please try again.");  
+    } else {
+      setToastMessage("Please fill in all fields correctly."); 
     }
   };
+
 
   return (
     <>
@@ -81,6 +95,36 @@ function Sigin() {
           </span>
           <span className={styles.instruction}>Sign in to start ordering.</span>
           <form className={styles.form} onSubmit={handleSubmit}>
+            <label htmlFor="name" className={styles.label}>
+              Name
+            </label>
+            <br />
+            <input
+              type="text"
+              name="name"
+              className={styles.input}
+              value={formData.name}
+              onChange={handleInputChange}
+              placeholder="eg. John A"
+            />
+            {formErrors.name && <span className={styles.error}>{formErrors.name}</span>}
+            <br />
+            <label htmlFor="phonenumber" className={styles.label}>
+              Phone Number
+            </label>
+            <br />
+            <input
+              type="number"
+              name="phonenumber"
+              className={styles.input}
+              placeholder="Enter your 10 digit mobile number"
+              value={formData.phonenumber}
+              onChange={handleInputChange}
+            />
+            {formErrors.phonenumber && (
+              <span className={styles.error}>{formErrors.phonenumber}</span>
+            )}
+            <br />
             <label htmlFor="email" className={styles.label}>
               Email
             </label>
@@ -93,9 +137,7 @@ function Sigin() {
               value={formData.email}
               onChange={handleInputChange}
             />
-            {formErrors.email && (
-              <span className={styles.error}>{formErrors.email}</span>
-            )}
+            {formErrors.email && <span className={styles.error}>{formErrors.email}</span>}
             <br />
             <label htmlFor="password" className={styles.label}>
               Password
@@ -113,16 +155,12 @@ function Sigin() {
               <span className={styles.error}>{formErrors.password}</span>
             )}
             <br />
-            <p className={styles.forgotPassword}>
-            <a href="#forgot-password">Forgot Password?</a>
-          </p>
             <button type="submit" className={styles.button}>
-              Sign In
+              Continue
             </button>
           </form>
-         
           <p className={styles.signUpPrompt}>
-            Don&apos;t have an account? <a href="#signup">Sign up</a>
+            Already have an account? <a href="#signin">Sign in</a>
           </p>
         </div>
         <div className={styles.rightcontainer}>
@@ -233,12 +271,9 @@ function Sigin() {
           <a href="#privacy-policy">Privacy Policy</a>
           <a href="#terms">Terms</a>
           <a href="#pitching">Pitching</a>
-          <a href="#do-not-sell">
-            Do not sell or share my personal information
-          </a>
+          <a href="#do-not-sell">Do not sell or share my personal information</a>
         </div>
       </div>
-      {/* Conditional ToastMessage Display */}
       {toastMessage && (
         <div className={styles.toastMessage}>{toastMessage}</div>
       )}
@@ -246,4 +281,4 @@ function Sigin() {
   );
 }
 
-export default Sigin;
+export default Signup;

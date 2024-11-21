@@ -10,6 +10,7 @@ import instagramIcon from "../assets/Instagram.png";
 import tiktokIcon from "../assets/Tiktok.png";
 import SnapchatIcon from "../assets/Snapchat.png";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Signup() {
   const [toastMessage, setToastMessage] = useState("");
@@ -160,7 +161,7 @@ function Signup() {
             </button>
           </form>
           <p className={styles.signUpPrompt}>
-            Already have an account? <a href="#signin">Sign in</a>
+            Already have an account? <Link to="/signin">Sign in</Link>
           </p>
         </div>
         <div className={styles.rightcontainer}>

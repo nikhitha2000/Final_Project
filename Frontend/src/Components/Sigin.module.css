@@ -233,4 +233,67 @@
     padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }  
+}
+@media screen and (max-width: 768px) {
+    .body {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+    .leftcontainer,
+    .rightcontainer {
+        width: 100%;
+        text-align: center;
+    }
+    .logo {
+        width: 4rem; 
+    }
+
+    .title {
+        font-size: 20px;
+    }
+    .input {
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .button {
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .ArtImage {
+        width: 100%;
+        height: auto;
+    }
+    .footerContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footerBottom {
+        background-color: #03081F;
+        display: flex;
+        justify-content: space-between;
+        gap: 10rem;
+        padding: 2rem 0;
+      }
+
+    .footerLinks {
+        display: flex;
+        justify-content: center;
+    }
+
+    .footerLinks a {
+        margin-right: 1rem;
+    }
+
+    .socialIcon {
+        margin-left: 0.5rem;
+    }
+    .companyInfo,
+    .emailInput,
+    .subscribeButton {
+        font-size: 12px;
+    }
+}  

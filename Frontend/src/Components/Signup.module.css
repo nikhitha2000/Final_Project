@@ -250,7 +250,7 @@
     }
 
     .logo {
-        width: 4rem; /* Smaller logo on mobile */
+        width: 4rem; 
     }
 
     .title {
@@ -258,7 +258,7 @@
     }
 
     .input {
-        width: 80%; /* Input fields should fill most of the screen */
+        width: 80%;
         margin-left: 10%;
     }
 
@@ -296,8 +296,6 @@
     .socialIcon {
         margin-left: 0.5rem;
     }
-
-    /* Optional: Styling for footer elements */
     .companyInfo,
     .emailInput,
     .subscribeButton {

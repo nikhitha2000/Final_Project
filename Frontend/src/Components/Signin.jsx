@@ -9,8 +9,8 @@ import facebookIcon from "../assets/Facebook.png";
 import instagramIcon from "../assets/Instagram.png";
 import tiktokIcon from "../assets/Tiktok.png";
 import SnapchatIcon from "../assets/Snapchat.png";
-import { useNavigate } from "react-router-dom";
-function Sigin() {
+import { Link, useNavigate } from "react-router-dom";
+function Signin() {
   const [toastMessage, setToastMessage] = useState("");
   const [formErrors, setFormErrors] = useState({});
   const [formData, setFormData] = useState({
@@ -122,7 +122,7 @@ function Sigin() {
           </form>
          
           <p className={styles.signUpPrompt}>
-            Don&apos;t have an account? <a href="#signup">Sign up</a>
+            Don&apos;t have an account? <Link to="/">Sign up</Link>
           </p>
         </div>
         <div className={styles.rightcontainer}>
@@ -246,4 +246,4 @@ function Sigin() {
   );
 }
 
-export default Sigin;
+export default Signin;

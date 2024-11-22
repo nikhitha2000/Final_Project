@@ -1,0 +1,474 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins","sans-serif";
+}
+
+.location{
+    background-color: #FAFAFA;
+    border: 1px solid #000000;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    margin: 0 5rem;
+}
+.offer{
+    margin-left: 2rem;
+    font-weight: 500;
+    font-size: 15px;
+}
+.offer a{
+    font-weight: 700;
+    color: #FC8A06;
+    font-size: 13px;
+}
+.add{
+    margin-left: 10rem;
+    font-weight: 500;
+    font-size: 15px;
+}
+.addres{
+    width: 3rem;
+    height: 3rem;
+}
+.changelocation{
+    font-weight: 500;
+    color: #FC8A06;
+    font-size: 12px;
+}
+.logo{
+    margin-left: 4rem;
+    margin-top: 1rem;
+}
+.logoContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+
+  .navLinks {
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1;
+    margin-top: 1rem;
+  }
+  
+  .navList {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    gap: 3rem;
+  }
+  
+  .navItem {
+    text-decoration: none;
+    color: #03081F;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 0 1rem;
+    transition: color 0.3s ease;
+  }
+
+  .navFirstItem{
+    background-color: #FC8A06;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 120px;
+    padding: 0.65rem 3rem;
+    font-weight: 500;
+    font-size: 16px;
+  }  
+  .navLastItem{
+    background-color: #03081F;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 120px;
+    padding: 0.70rem 2rem;
+    font-weight: 500;
+    font-size: 16px;
+  }  
+.mainbanner{
+    background-color: #fbfbfb;
+    margin: 2rem 4rem;
+    display: flex;
+  justify-content:flex-start;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #000000;
+  border-radius: 120px;
+}
+.description{
+    display: block;
+    margin-top: 5rem;
+    margin-left: 4rem;
+    color: #03081F;
+    font-weight: 400;
+    font-size: 13px;
+}
+.heading{
+    font-weight: 600;
+    font-size: 2rem;
+    margin-left: 4rem;
+}
+.subheading{
+    font-weight: 600;
+    font-size: 2rem;
+    margin-left: 4rem;
+    color: #FC8A06;
+}
+.postcode{
+    margin-left: 4rem;
+    font-size: 12px;
+    font-weight: 400;
+}
+.searchbar input{
+    margin-left: 4rem;
+    border: 1px solid #000000;
+    border-radius: 120px;
+    width: 12rem;
+    padding:0.5rem 2rem;
+    font-weight: 400;
+    font-size: 12px;
+}
+.searchbtn{
+    background-color: #FC8A06;
+    color: #FFFFFF;
+    border-radius: 120px;
+    width: 7rem;
+    border: none;
+    padding: 0.5rem 0.5rem;
+    margin-bottom: 7rem;
+}
+.imagecontainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.pizza{
+    width: 22rem;
+    height: 20rem;
+}
+
+.eat{
+    height: 15rem;
+    width: 15rem;
+}
+.bg{
+    height: 25rem;
+    width: 23rem;
+    margin-top: 2rem;
+    position: absolute;
+}
+.orderbox {
+    position: relative;
+}
+.groupWrapper{
+    position: relative;
+}
+.group1,.group2{
+    display: block;
+    width: 100%;
+    height:auto;
+}
+.textOverlay{
+position: absolute;
+  top: 70%;
+  left: 40%;
+  transform: translate(-50%, -50%); 
+  text-align: center;
+}
+.textOverlay p {
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    color: #000000;
+}
+.offercontainer{
+    display:flex;
+    justify-content: space-around;
+}
+.deals{
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.categorycard{
+    font-weight: 400;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+.selectedcategorycard{
+    border:1px solid #FC8A06;
+    color: #FC8A06;
+    border-radius: 60px;
+    padding: 1rem 1rem;
+}
+.offerslist{
+    width: 26rem;
+    height: 15rem;
+    margin-left: 4rem;
+    margin-top: 2rem;
+}
+.cuisines{
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 2rem;
+    margin-left: 4rem;
+}
+.cuisineslist{
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.cuisineimage{
+    width: 14rem;
+}
+.cuisineslist p{
+    color:#03081F;
+    font-weight: 700;
+    font-size: 1rem;
+}
+.cuisineslist span{
+    color: #FC8A06;
+    font-weight: 400;
+    font-size: 1rem;
+}
+.Restaurants h2{
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-left: 4rem;
+}
+.restaurantList{
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.restaurantImage{
+    width: 10rem;
+    margin-left: 4rem;
+    height: 10rem;
+}
+.orderImg{
+    margin-left: 4rem;
+    width: 85rem;
+}
+.Perkssection{
+    margin-top: 1rem;
+}
+.perks{
+    width: 40rem;
+    margin-left: 4rem;
+}
+.knowaboutus{
+    margin-top: 1rem;
+    background-color: #d9d9d9;
+    border-radius: 120px;
+    border: 1px solid #000000;
+}
+.knowaboutus{
+    margin: 1rem 4rem;
+    border-radius: 12px;
+}
+.linksContainer {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 5rem;
+    padding-left: 4rem;
+}
+.linksContainer h3{
+    font-weight: 700;
+    font-size: 2rem;
+}
+.firstlink{
+    font-weight: 400;
+    font-size: 1rem;
+    border: 1px solid #FC8A06;
+    text-decoration: none;
+    padding: 1rem;
+    color: #000000;
+    border-radius: 120px;
+}
+.link{
+    font-weight: 400;
+    font-size: 1rem;
+    color: #000000;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+.innersection{
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    margin: 5rem;
+    display: flex;
+}
+.faq{
+    margin: 5rem;
+}
+.faq h4{
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+.firstheading{
+    background-color: #FC8A06;
+    border: none;
+    display: inline;
+    border-radius: 120px;
+    margin: 2rem;
+    padding:5px;
+}
+.guidelines{
+    background-color: #d9d9d9;
+    border-radius: 12px;
+    width: 16rem;
+    margin:1rem 2rem;
+}
+.guidelines p,.guidelines span{
+    margin-left: 1rem;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: 1rem;
+    display: block;
+}
+.order{
+    width: 5rem;
+    margin-left: 2rem;
+}
+.analytics{
+    background-color: #FC8A06;
+    margin: 1rem 4rem;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-around;
+}
+.numbers{
+    color: #FFFFFF;
+    font-weight: 300;
+    font-size: 2rem;
+    margin: 1rem 4rem;
+}
+.info{
+    color: #FFFFFF;
+    font-weight: 300;
+    font-size: 1.50rem;
+    margin-left:2.25rem ; 
+}
+.footer{
+    background-color: #D9D9D9;
+}
+.footerContainer {
+    display: flex;
+    justify-content: space-between;
+}
+.leftSection {
+    padding-left: 3rem;
+    padding-top: 0rem;
+}
+.companyInfo{
+    font-size: 14px;
+    font-family: "Poppins", "sans-serif";
+    font-weight: 400;
+}
+.logo2{
+    width: 16rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+.appStoreImage{
+    margin-bottom: 1rem;
+}
+.centerSection h4{
+    font-family: "Poppins",sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 2rem;
+    color:#03081F;
+    margin-bottom: 2rem;
+}
+.emailInput{
+    border-radius: 120px;
+    font-family: "Poppins",sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    padding: 10px;
+    width: 15rem;
+    border: none;
+}
+.subscribe{
+    margin-bottom: 1rem;
+}
+.subscribeButton{
+    background-color: #FC8A06;
+    color: #FFFFFF;
+    border-radius: 120px;
+    border: none;
+    width: 7rem;
+    padding: 10px;
+    font-family: "Poppins",sans-serif;
+    font-weight: 500;
+}
+.policyText{
+    font-family: "Poppins",sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color:#03081F;
+    margin-bottom: 1rem;
+}
+.policyText a{
+    font-family: "Poppins",sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color:#03081F;
+}
+.socialIcon{
+    margin-left: 1rem;
+}
+.rightSection{
+   display: flex;
+   justify-content: space-around;
+}
+.rightSection h4{
+    font-family: "Poppins",sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+}
+.legalLinks{
+    margin-top: 3rem;
+    list-style-type: none;
+    margin-left: 1rem;
+    
+}
+.legalLinks a{
+    font-family: "Poppins",sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #000000;
+    margin-left: 4rem;
+    margin-bottom: 2rem;
+}
+.footerBottom{
+    background-color: #03081F;
+    display: flex;
+    justify-content: space-around;
+    gap:10rem
+}
+.footerBottom p{
+    color: #FFFFFF;
+    font-family: "Poppins",sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    margin: 1rem 0;
+}
+.footerLinks{
+    margin: 1rem 0;
+}
+.footerLinks a{
+    text-decoration: none;
+    font-family: "Poppins",sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #FFFFFF;
+    margin-right: 2rem;
+}

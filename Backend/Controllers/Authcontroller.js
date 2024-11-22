@@ -1,8 +1,8 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const cloudinary = require("../cloudinaryConfig");
 
-// Sign-up logic
 exports.signup = async (req, res) => {
   const { name, phonenumber, email, password } = req.body;
 
@@ -10,7 +10,7 @@ exports.signup = async (req, res) => {
     return res.status(400).json({ message: 'All fields are required!' });
   }
 
-  // Phone number validation
+ 
   const phoneRegex = /^[6789]\d{9}$/;
   if (!phoneRegex.test(phonenumber)) {
     return res.status(400).json({
@@ -18,20 +18,20 @@ exports.signup = async (req, res) => {
     });
   }
 
-  // Email validation
+ 
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
   if (!emailRegex.test(email)) {
     return res.status(400).json({ message: 'Invalid email format.' });
   }
 
   try {
-    // Check if email already exists
+    
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: 'Email already exists' });
     }
 
-    // Hash the password before saving
+   
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password.trim(), salt);
 
@@ -50,7 +50,7 @@ exports.signup = async (req, res) => {
   }
 };
 
-// Sign-in logic
+
 exports.signin = async (req, res) => {
   const { email, password } = req.body;
 
@@ -81,5 +81,19 @@ exports.signin = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error, please try again' });
+  }
+};
+
+exports.restaurants = async (req,res)=>{
+  try {
+    const response = await cloudinary.api.resources({
+      type: 'upload',
+      resource_type: 'image'
+    });
+    const restaurantImages = response.resources.map(item => item.secure_url); 
+    res.status(200).json(restaurantImages);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Failed to fetch restaurant images.' });
   }
 };

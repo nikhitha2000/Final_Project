@@ -58,8 +58,10 @@ function Signin() {
       });
   
       const data = await response.json();
+      console.log(data)
   
       if (response.ok) {
+        localStorage.setItem("username", data.username);
         localStorage.setItem("token", data.token); // Store the token
         navigate("/home");  
       } else {

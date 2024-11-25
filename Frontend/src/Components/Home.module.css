@@ -249,6 +249,7 @@ position: absolute;
     width: 10rem;
     margin-left: 4rem;
     height: 10rem;
+    cursor: pointer;
 }
 .orderImg{
     margin-left: 4rem;
@@ -471,4 +472,77 @@ position: absolute;
     font-size: 15px;
     color: #FFFFFF;
     margin-right: 2rem;
+}
+
+@media (max-width: 768px) {
+    .mainbanner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .bannertext {
+        margin-top: 1rem;
+    }
+
+    .pizza, .eat {
+        width: 100%;
+    }
+
+    .searchbar {
+        width: 90%;
+    }
+
+    .orderbox {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .orderbox img {
+        max-width: 100%;
+    }
+
+    .offers-list {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .categorycard, .selectedcategorycard {
+        width: 100%;
+        text-align: center;
+    }
+
+    .cuisineslist {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .footerContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footerBottom {
+        background-color: #03081F;
+        display: flex;
+        justify-content: space-between;
+        gap: 10rem;
+        padding: 2rem 0;
+      }
+
+    .footerLinks {
+        display: flex;
+        justify-content: center;
+    }
+
+    .footerLinks a {
+        margin-right: 1rem;
+    }
+
+    .socialIcon {
+        margin-left: 0.5rem;
+    }
+    .companyInfo,
+    .emailInput,
+    .subscribeButton {
+        font-size: 12px;
+    }
 }

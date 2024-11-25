@@ -22,22 +22,18 @@ function Signup() {
     password: "",
   });
   const navigate = useNavigate();
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData({ ...formData, [name]: value });
   };
-
   const validateForm = () => {
     const errors = {};
     if (!formData.name) errors.name = "*Name is required";
     if (!formData.phonenumber) {
       errors.phonenumber = "*Phone Number is required";
     } else if (!/^[6789]\d{9}$/.test(formData.phonenumber)) {
-      errors.phonenumber = "*Phone number must start with 6, 7, 8, or 9 and be 10 digits long";
+      errors.phonenumber =
+        "*Phone number must start with 6, 7, 8, or 9 and be 10 digits long";
     }
     if (!formData.email) errors.email = "*Email is required";
     if (!formData.password) {
@@ -49,41 +45,35 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) {
-      return; 
+      return;
     }
-    const formData = { email: formData.email, password: formData.password };
+    const formDataToSend = { name: formData.name, 
+      phonenumber: formData.phonenumber, 
+      email: formData.email, 
+      password: formData.password, };
     if (validateForm()) {
       try {
         const response = await fetch("http://localhost:5000/api/auth/signup", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formDataToSend),
         });
-
         const data = await response.json();
-
         if (response.ok) {
-          setToastMessage("Registration successful!"); 
-          setFormData({
-            name: "",
-            phonenumber: "",
-            email: "",
-            password: "",
-          });
+          localStorage.setItem("username", formData.name);
+          setToastMessage("Registration successful!");
+          setFormData({ name: "", phonenumber: "", email: "", password: "" });
           navigate("/signin");
         } else {
           setToastMessage(data.message);
         }
       } catch (error) {
-        setToastMessage("Something went wrong, please try again."); 
+        setToastMessage("Something went wrong, please try again.");
       }
     } else {
-      setToastMessage("Please fill in all fields correctly."); 
+      setToastMessage("Please fill in all fields correctly.");
     }
   };
-
 
   return (
     <>
@@ -108,7 +98,9 @@ function Signup() {
               onChange={handleInputChange}
               placeholder="eg. John A"
             />
-            {formErrors.name && <span className={styles.error}>{formErrors.name}</span>}
+            {formErrors.name && (
+              <span className={styles.error}>{formErrors.name}</span>
+            )}
             <br />
             <label htmlFor="phonenumber" className={styles.label}>
               Phone Number
@@ -138,7 +130,9 @@ function Signup() {
               value={formData.email}
               onChange={handleInputChange}
             />
-            {formErrors.email && <span className={styles.error}>{formErrors.email}</span>}
+            {formErrors.email && (
+              <span className={styles.error}>{formErrors.email}</span>
+            )}
             <br />
             <label htmlFor="password" className={styles.label}>
               Password
@@ -197,7 +191,8 @@ function Signup() {
               <button className={styles.subscribeButton}>Subscribe</button>
             </div>
             <p className={styles.policyText}>
-              We won’t spam, read our <a href="#privacy-policy">email policy</a>.
+              We won’t spam, read our <a href="#privacy-policy">email policy</a>
+              .
             </p>
             <div className={styles.socialIcons}>
               <a href="#facebook">
@@ -272,7 +267,9 @@ function Signup() {
           <a href="#privacy-policy">Privacy Policy</a>
           <a href="#terms">Terms</a>
           <a href="#pitching">Pitching</a>
-          <a href="#do-not-sell">Do not sell or share my personal information</a>
+          <a href="#do-not-sell">
+            Do not sell or share my personal information
+          </a>
         </div>
       </div>
       {toastMessage && (

@@ -32,9 +32,12 @@ import SnapchatIcon from "../assets/Snapchat.png";
 import order from "../assets/order.png";
 import food from "../assets/food.png";
 import phone from "../assets/phone.png";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [restaurants, setRestaurants] = useState([]);
+  const [username, setUsername] = useState("");
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get("http://localhost:5000/api/auth/restaurants")
@@ -45,6 +48,15 @@ function Home() {
         console.error("Error fetching restaurant images:", error);
       });
   }, []);
+  useEffect(() => {
+    const storedUsername = localStorage.getItem("username");
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
+  }, []);
+  const handleRestaurantClick = () => {
+    navigate("/restaurantMenu");
+  };
   return (
     <div className="home-container">
       <header className="header">
@@ -80,7 +92,7 @@ function Home() {
                 </a>
               </li>
               <li>
-                <a href="#" className={styles.navItem}>
+                <a href="/restaurantMenu" className={styles.navItem}>
                   Restaurants
                 </a>
               </li>
@@ -91,7 +103,8 @@ function Home() {
               </li>
               <li>
                 <a href="#" className={styles.navLastItem}>
-                  <img src={user} className={styles.user}></img>Login/Signup
+                  <img src={user} className={styles.user}></img> Hey{" "}
+                  {username ? username : "Guest"}
                 </a>
               </li>
             </ul>
@@ -223,7 +236,11 @@ function Home() {
         <div className={styles.restaurantList}>
           {restaurants.length > 0 ? (
             restaurants.map((url, index) => (
-              <div key={index} className={styles.restaurantItem}>
+              <div
+                key={index}
+                className={styles.restaurantItem}
+                onClick={() => handleRestaurantClick(index)}
+              >
                 <img
                   src={url}
                   alt={`Restaurant ${index + 1}`}
@@ -236,6 +253,7 @@ function Home() {
           )}
         </div>
       </section>
+
       <section className={styles.orderapp}>
         <img src={orderImg} className={styles.orderImg} alt="ordering"></img>
       </section>

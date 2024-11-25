@@ -1,0 +1,285 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "sans-serif";
+}
+
+.location {
+  background-color: #fafafa;
+  border: 1px solid #000000;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  margin: 0 5rem;
+}
+.offer {
+  margin-left: 2rem;
+  font-weight: 500;
+  font-size: 15px;
+}
+.offer a {
+  font-weight: 700;
+  color: #fc8a06;
+  font-size: 13px;
+}
+.add {
+  margin-left: 10rem;
+  font-weight: 500;
+  font-size: 15px;
+}
+.addres {
+  width: 3rem;
+  height: 3rem;
+}
+.changelocation {
+  font-weight: 500;
+  color: #fc8a06;
+  font-size: 12px;
+}
+.logo {
+  margin-left: 4rem;
+  margin-top: 1rem;
+}
+.logoContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.navLinks {
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 1;
+  margin-top: 1rem;
+}
+
+.navList {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  gap: 3rem;
+}
+
+.navItem {
+  text-decoration: none;
+  color: #03081f;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0 1rem;
+  transition: color 0.3s ease;
+}
+
+.navFirstItem {
+  background-color: #fc8a06;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 120px;
+  padding: 0.65rem 3rem;
+  font-weight: 500;
+  font-size: 16px;
+}
+.navLastItem {
+  background-color: #03081f;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 120px;
+  padding: 0.7rem 2rem;
+  font-weight: 500;
+  font-size: 16px;
+}
+.restaurantSection {
+  position: relative;
+  color: white;
+}
+
+.restaurantImageWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 3rem;
+}
+
+.resbg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  margin-left: 4rem;
+  object-fit: cover;
+  z-index: -1;
+  border-radius: 12px;
+}
+
+.restaurantInfo {
+  position: relative;
+  text-align: left;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: white;
+}
+
+.restaurantInfo h2 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  margin-left: 4rem;
+  font-weight: 600;
+}
+
+.tagline {
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  margin-left: 4rem;
+  margin-top: 4rem;
+}
+.deliverycontainer {
+  display: flex;
+  gap: 0.5rem;
+}
+.ordercompleted,
+.Motocross {
+  width: 1rem;
+  margin-right: 0.5rem;
+}
+.minimumOrder,
+.deliveryTime {
+  font-size: 1rem;
+  font-weight: 600;
+  border: 1px solid #ffffff;
+  border-radius: 120px;
+  margin-left: 4rem;
+  padding: 0.75rem;
+}
+.food {
+  width: 30rem;
+  border-radius: 12px;
+}
+.ratings {
+  width: 6rem;
+  margin-left: 6rem;
+  margin-top: 13rem;
+}
+.openButton {
+  background-color: #fc8a06;
+  margin-left: 4rem;
+  border-radius: 12px;
+  color: #ffffff;
+  padding: 0.75rem;
+  border: none;
+  width: 15rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.clock {
+  width: 1.75rem;
+  padding-right: 0.75rem;
+}
+.section {
+  margin-top: 1rem;
+  font-weight: 700;
+  font-size: 2rem;
+}
+.searchcontainer {
+  display: flex;
+  justify-content: space-around;
+}
+.input {
+  border-radius: 120px;
+  border: 1px solid #03081f;
+  background-image: url("../assets/SearchMore.png");
+  background-repeat: no-repeat;
+  background-position: left;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  width: 20rem;
+}
+.banner {
+  margin-top: 2rem;
+  background-color: #fc8a06;
+}
+.varities {
+  display: flex;
+  justify-content: space-around;
+}
+.varietyitems a,
+.firstvarietyitem a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #ffffff;
+}
+.varietyitems {
+  list-style-type: none;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2.25rem;
+  margin-right: 2rem;
+  padding-top: 0.5rem;
+}
+.firstvarietyitem {
+  border-radius: 120px;
+  padding: 10px 17px 10px 17px;
+  background-color: #000000;
+  list-style-type: none;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2.25rem;
+  margin-right: 2rem;
+}
+.offersection {
+  margin-top: 2rem;
+}
+.firstImage {
+  width: 25rem;
+  margin-left: 4rem;
+}
+.menusection h2 {
+  margin-top: 2rem;
+  margin-left: 4rem;
+}
+.menuItems {
+  margin-left: 4rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.menuItem {
+  width: 20%;
+  box-shadow: 5px 5px 34px 0px #000000;
+  border: 1px solid #000000;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.menuItems img {
+  width: 60%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.description {
+  font-weight: 400;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.itemPrice {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #000000;
+  margin-bottom: 1rem;
+}

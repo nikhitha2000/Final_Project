@@ -82,13 +82,15 @@ exports.signin = async (req, res) => {
 exports.restaurants = async (req, res) => {
   try {
     const response = await cloudinary.api.resources({
-      type: "upload",
-      resource_type: "image",
+      type: "upload", 
+      prefix: "Restaurants/",         
+      resource_type: "image", 
     });
     const restaurantImages = response.resources.map((item) => item.secure_url);
     res.status(200).json(restaurantImages);
   } catch (error) {
-    console.error(error);
+    console.error("Error fetching restaurant images:", error);
     res.status(500).json({ message: "Failed to fetch restaurant images." });
   }
 };
+

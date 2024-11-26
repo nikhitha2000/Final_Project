@@ -240,28 +240,29 @@
   margin-top: 2rem;
   margin-left: 4rem;
 }
-.menuItems {
-  margin-left: 4rem;
+.menuItems,
+.secondmenu,
+.thirdmenu {
   margin-top: 2rem;
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: 3rem;
 }
-
 .menuItem {
-  width: 20%;
-  box-shadow: 5px 5px 34px 0px #000000;
+  width: 27%;
+  box-shadow: 5px 5px 20px 0px #000000;
   border: 1px solid #000000;
   margin-bottom: 1rem;
   padding: 1rem;
-  border-radius: 10px;
-  text-align: center;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  border-radius: 10px;
 }
-.menuItems img {
-  width: 60%;
+.imageC {
+  position: relative;
+}
+.imageC img {
+  width: 10rem;
   height: auto;
   border-radius: 10px;
 }
@@ -270,16 +271,316 @@
   font-weight: 600;
   font-size: 1.2rem;
 }
-
+.plus {
+  position: absolute;
+  top: 120px;
+  right: 10px;
+  width: 30px !important;
+  height: 30px !important;
+  cursor: pointer;
+  z-index: 1;
+}
 .description {
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 0.75rem;
   margin-bottom: 1rem;
+  margin-top: 1rem;
 }
-
 .itemPrice {
   font-weight: 600;
   font-size: 1.2rem;
   color: #000000;
   margin-bottom: 1rem;
+}
+
+.secondmenusection h2,
+.thirdmenusection h2 {
+  margin-top: 2rem;
+  color: #fc8a06;
+  margin-left: 4rem;
+}
+.timingssection {
+  background-color: #fbfbfb;
+  border-radius: 12px;
+  box-shadow: 5px 5px 14px 0px #000000;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  line-height: 3;
+  display: flex;
+  justify-content: space-around;
+}
+.deliveryinfo,.contactinfo{
+  width: 34%;
+  margin-bottom: 2rem;
+}
+.operationaltime{
+  background-color: #03081f;
+  width: 34%;
+  color: #ffffff;
+  line-height: 3rem;
+}
+.operationaltime p{
+  color: #ffffff;
+  padding-left: 2rem;
+}
+.tracking,
+.id ,.clock1{
+  width: 1.25rem;
+  margin-left: 2rem;
+  margin-top: 1.5rem;
+  margin-right: 1rem;
+}
+.days {
+  color: #000000;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-left: 2rem;
+  line-height: 2rem;
+  margin-right: 1rem;
+}
+.instruction,.heading{
+  margin-left: 2rem;
+}
+.timingssection p {
+  display: inline;
+}
+.mapSection {
+  margin: 3rem 0;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+.map {
+  height: 400px;
+  width: 80%;
+  margin-left: 3rem;
+  margin-top: 2rem;
+  margin-right: 3rem;
+  border-radius: 12px;
+}
+.popup {
+  background-color: #03081FF7;
+  border-radius: 10px; 
+  padding: 15px; 
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+}
+
+.popup h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fc8a06;
+  margin-bottom: 10px;
+}
+.popup span{
+  color: #fc8a06;
+}
+.popup address {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.phone {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.customerreviewssection {
+  margin: 2rem 0;
+  background-color: #d9d9d9;
+}
+
+.reviews {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+.restaurantImage{
+  width: 10rem;
+  margin-left: 4rem;
+  height: 10rem;
+  cursor: pointer;
+}
+.restaurantList{
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.rev{
+  margin-left: 40rem;
+}
+.similarres{
+  margin-left: 4rem;
+}
+.reviews h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+}
+
+.leftarrow, .rightarrow {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+.reviewcards {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+.review1 {
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+  object-fit: contain;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.reviewcards img:hover {
+  transform: scale(1.05);
+}
+
+.leftarrow {
+  margin-right: 1rem;
+}
+
+.rightarrow {
+  margin-left: 1rem;
+}
+
+ .leftarrow, .rightarrow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #fff;
+}
+
+l .leftarrow:hover, .reviewCarousel .rightarrow:hover {
+  background-color: #f1f1f1;
+}
+
+.reviewcards {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+}
+.footer{
+  background-color: #D9D9D9;
+}
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.leftSection {
+  padding-left: 3rem;
+  padding-top: 0rem;
+}
+.companyInfo{
+  font-size: 14px;
+  font-family: "Poppins", "sans-serif";
+  font-weight: 400;
+}
+.logo2{
+  width: 16rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+.appStoreImage{
+  margin-bottom: 1rem;
+}
+.centerSection h4{
+  font-family: "Poppins",sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 2rem;
+  color:#03081F;
+  margin-bottom: 2rem;
+}
+.emailInput{
+  border-radius: 120px;
+  font-family: "Poppins",sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 10px;
+  width: 15rem;
+  border: none;
+}
+.subscribe{
+  margin-bottom: 1rem;
+}
+.subscribeButton{
+  background-color: #FC8A06;
+  color: #FFFFFF;
+  border-radius: 120px;
+  border: none;
+  width: 7rem;
+  padding: 10px;
+  font-family: "Poppins",sans-serif;
+  font-weight: 500;
+}
+.policyText{
+  font-family: "Poppins",sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color:#03081F;
+  margin-bottom: 1rem;
+}
+.policyText a{
+  font-family: "Poppins",sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color:#03081F;
+}
+.socialIcon{
+  margin-left: 1rem;
+}
+.rightSection{
+ display: flex;
+ justify-content: space-around;
+}
+.rightSection h4{
+  font-family: "Poppins",sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+.legalLinks{
+  margin-top: 3rem;
+  list-style-type: none;
+  margin-left: 1rem;
+  
+}
+.legalLinks a{
+  font-family: "Poppins",sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #000000;
+  margin-left: 4rem;
+  margin-bottom: 2rem;
+}
+.footerBottom{
+  background-color: #03081F;
+  display: flex;
+  justify-content: space-around;
+  gap:10rem
+}
+.footerBottom p{
+  color: #FFFFFF;
+  font-family: "Poppins",sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  margin: 1rem 0;
+}
+.footerLinks{
+  margin: 1rem 0;
+}
+.footerLinks a{
+  text-decoration: none;
+  font-family: "Poppins",sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #FFFFFF;
+  margin-right: 2rem;
 }

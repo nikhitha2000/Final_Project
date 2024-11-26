@@ -12,6 +12,10 @@
     border-bottom-right-radius: 12px;
     margin: 0 5rem;
 }
+.cart{
+    width: 14rem;
+    margin-left: 15.25rem;
+}
 .offer{
     margin-left: 2rem;
     font-weight: 500;

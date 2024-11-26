@@ -17,6 +17,7 @@ import instagramIcon from "../assets/Instagram.png";
 import tiktokIcon from "../assets/Tiktok.png";
 import SnapchatIcon from "../assets/Snapchat.png";
 import ratings from "../assets/Rectangle 64.png";
+import cart from "../assets/Group 58.png";
 import sidearrow from "../assets/Group 57.png";
 import rightarrow from "../assets/Group 56.png";
 import clock from "../assets/Clock.png";
@@ -122,6 +123,7 @@ function RestaurantMenu() {
           <a href="#" className={styles.changelocation}>
             Change Location
           </a>
+          <img src={cart} className={styles.cart} alt="cart" />
         </div>
         <div className={styles.logoContainer}>
           <img src={logo} alt="Order UK" className={styles.logo} />

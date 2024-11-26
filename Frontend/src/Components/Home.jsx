@@ -33,6 +33,7 @@ import order from "../assets/order.png";
 import food from "../assets/food.png";
 import phone from "../assets/phone.png";
 import { useNavigate } from "react-router-dom";
+import cart from "../assets/Group 58.png";
 
 function Home() {
   const [restaurants, setRestaurants] = useState([]);
@@ -71,6 +72,7 @@ function Home() {
           <a href="#" className={styles.changelocation}>
             Change Location
           </a>
+          <img src={cart} className={styles.cart} alt="cart" />
         </div>
         <div className={styles.logoContainer}>
           <img src={logo} alt="Order UK" className={styles.logo} />

@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
 import Signup from "./Components/Signup";
 import RestaurantMenu from "./Components/RestaurantMenu";
+import Checkout from "./Components/Checkout";
 
 function App() {
   useEffect(() => {
@@ -29,6 +30,7 @@ function App() {
           </Route>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/restaurantMenu" element={<RestaurantMenu />}></Route>
+          <Route path = "/checkout" element={<Checkout />}></Route>
         </Routes>
       </div>
     </BrowserRouter>

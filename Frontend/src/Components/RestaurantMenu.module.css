@@ -15,6 +15,7 @@
 .cart{
   width: 14rem;
   margin-left: 15.25rem;
+  cursor: pointer;
 }
 .offer {
   margin-left: 2rem;
@@ -428,6 +429,42 @@
   cursor: pointer;
   width: 30px;
   height: 30px;
+}
+.cartSection {
+  position: fixed;
+  top: 20%;
+  right: 0;
+  width: 300px;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: -4px 0px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(${(props) => (props.isCartVisible ? "0" : "100%")});
+}
+.checkout{
+  cursor: pointer;
+}
+.cartItems {
+  margin-bottom: 20px;
+}
+
+.cartItem {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.cartItem p {
+  margin: 5px 0;
+}
+
+.cartTotal {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.cartTotal p {
+  color: #007bff;
 }
 
 .reviewcards {

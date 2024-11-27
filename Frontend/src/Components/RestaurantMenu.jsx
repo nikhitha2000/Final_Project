@@ -31,14 +31,18 @@ import clock1 from "../assets/Clock1.png";
 import review1 from "../assets/Group 53.png";
 import review2 from "../assets/Group 54.png";
 import review3 from "../assets/Group 55.png";
+import deleteIcon from "../assets/Remove.png";
 import L from "leaflet";
 import { useNavigate } from "react-router-dom";
 function RestaurantMenu() {
   const [username, setUsername] = useState("");
   const [menuItems, setMenuItems] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
-  const [secondmenu, setSecondMenu] = useState([]);
-  const [thirdmenu, setThirdMenu] = useState([]);
+  const [carrt, setCart] = useState([]); 
+  const [secondMenu,setSecondMenu] = useState([]);
+  const [thirdMenu,setThirdMenu] = useState([]);
+  const [isCartVisible, setCartVisible] = useState(false);
+  const [searchTerm,setsearchTerm] = useState("");
   const mapRef = useRef(null);
   const mapInstance = useRef(null);
   const navigate = useNavigate();
@@ -52,6 +56,24 @@ function RestaurantMenu() {
         console.error("Error fetching menu items:", error);
       });
   }, []);
+  const addItemToCart = (item) => {
+    const existingItem = carrt.find((cartItem) => cartItem.name === item.name);
+    if (existingItem) {
+      setCart(
+        carrt.map((cartItem) =>
+          cartItem.name === item.name
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        )
+      );
+    } else {
+      setCart([...carrt, { ...item, quantity: 1 }]);
+    }
+    setCartVisible(true);
+  };
+  const removeItemFromCart = (itemToRemove) => {
+    setCart(cart.filter(item => item.name !== itemToRemove.name));
+  };
   useEffect(() => {
     axios
       .get("http://localhost:5000/api/auth/restaurants")
@@ -82,22 +104,21 @@ function RestaurantMenu() {
       </div>
     `);
   }, []);
+  const filteredItems = menuItems.filter((item) => 
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
+  const handleSearchChange = (e) => {
+    setsearchTerm(e.target.value);
+  };
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/auth/menu1")
-      .then((response) => {
-        setSecondMenu(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching menu items:", error);
-      });
-  }, []);
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/auth/menu2")
-      .then((response) => {
-        setThirdMenu(response.data);
+    Promise.all([
+      axios.get("http://localhost:5000/api/auth/menu1"),
+      axios.get("http://localhost:5000/api/auth/menu2"),
+    ])
+      .then(([responseMenu1, responseMenu2]) => {
+        setSecondMenu(responseMenu1.data);
+        setThirdMenu(responseMenu2.data);
       })
       .catch((error) => {
         console.error("Error fetching menu items:", error);
@@ -109,6 +130,46 @@ function RestaurantMenu() {
       setUsername(storedUsername);
     }
   }, []);
+  const handleCheckout = () => {
+    navigate("/checkout",{ state: { cart: carrt } });
+  };
+  const renderCartSection = () => {
+    return (
+      isCartVisible && (
+        <section className={styles.cartSection}>
+          <h2>My Basket</h2>
+          <div className={styles.cartItems}>
+            {carrt.length > 0 ? (
+              carrt.map((item, index) => (
+                <div key={index} className={styles.cartItem}>
+                  <p>{item.name}</p>
+                  <p>Quantity: {item.quantity}x</p>
+                  <p>Price: {item.price} x {item.quantity} = {item.price * item.quantity}</p>
+                  <img
+                  src={deleteIcon}
+                  alt="Delete"
+                  className={styles.deleteIcon}
+                  onClick={() => removeItemFromCart(item)}
+                />
+                </div>
+              ))
+            ) : (
+              <p>Your cart is empty</p>
+            )}
+          </div>
+          <div className={styles.cartTotal}>
+            <p>
+              Total: ₹
+              {carrt.reduce((total, item) => total + item.price * item.quantity, 0)}
+            </p>
+          </div>
+          <div className={styles.checkout}>
+            <button onClick={handleCheckout}>Checkout</button>
+            </div>
+        </section>
+      )
+    );
+  };
   return (
     <div className="home-container">
       <header className="header">
@@ -123,7 +184,7 @@ function RestaurantMenu() {
           <a href="#" className={styles.changelocation}>
             Change Location
           </a>
-          <img src={cart} className={styles.cart} alt="cart" />
+          <img src={cart} className={styles.cart} alt="cart" onClick={() => setCartVisible(!isCartVisible)} />
         </div>
         <div className={styles.logoContainer}>
           <img src={logo} alt="Order UK" className={styles.logo} />
@@ -211,6 +272,7 @@ function RestaurantMenu() {
           type="text"
           className={styles.input}
           placeholder="Search from menu..."
+          onChange={handleSearchChange}
         ></input>
       </div>
       <nav className={styles.banner}>
@@ -259,8 +321,8 @@ function RestaurantMenu() {
         <div className={styles.menusection}>
           <h2>Burgers</h2>
           <div className={styles.menuItems}>
-            {menuItems.length > 0 ? (
-              menuItems.map((item, index) => (
+            {filteredItems.length > 0 ? (
+              filteredItems.map((item, index) => (
                 <div key={index} className={styles.menuItem}>
                   <div className={styles.itemDetails}>
                     <h3 className={styles.name}>{item.name}</h3>
@@ -277,9 +339,7 @@ function RestaurantMenu() {
                       src={add}
                       alt="click image"
                       className={styles.plus}
-                      onClick={() => {
-                        console.log("click image");
-                      }}
+                      onClick={() => addItemToCart(item)}
                     />
                   </div>
                 </div>
@@ -294,8 +354,8 @@ function RestaurantMenu() {
         <div className={styles.secondmenusection}>
           <h2>Fries</h2>
           <div className={styles.secondmenu}>
-            {secondmenu.length > 0 ? (
-              secondmenu.map((item, index) => (
+            {filteredItems.length > 0 ? (
+              filteredItems.map((item, index) => (
                 <div key={index} className={styles.menuItem}>
                   <div className={styles.itemDetails}>
                     <h3 className={styles.name}>{item.name}</h3>
@@ -312,9 +372,7 @@ function RestaurantMenu() {
                       src={add}
                       alt="click image"
                       className={styles.plus}
-                      onClick={() => {
-                        console.log("click image");
-                      }}
+                      onClick={() => addItemToCart(item)}
                     />
                   </div>
                 </div>
@@ -329,8 +387,8 @@ function RestaurantMenu() {
         <div className={styles.thirdmenusection}>
           <h2>Cold Drinks</h2>
           <div className={styles.thirdmenu}>
-            {thirdmenu.length > 0 ? (
-              thirdmenu.map((item, index) => (
+            {filteredItems.length > 0 ? (
+              filteredItems.map((item, index) => (
                 <div key={index} className={styles.menuItem}>
                   <div className={styles.itemDetails}>
                     <h3 className={styles.name}>{item.name}</h3>
@@ -347,9 +405,7 @@ function RestaurantMenu() {
                       src={add}
                       alt="click image"
                       className={styles.plus}
-                      onClick={() => {
-                        console.log("click image");
-                      }}
+                      onClick={() => addItemToCart(item)}
                     />
                   </div>
                 </div>
@@ -585,6 +641,7 @@ function RestaurantMenu() {
           </a>
         </div>
       </div>
+      {renderCartSection()}
     </div>
   );
 }

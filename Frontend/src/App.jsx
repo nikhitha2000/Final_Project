@@ -6,6 +6,7 @@ import Home from "./Components/Home";
 import Signup from "./Components/Signup";
 import RestaurantMenu from "./Components/RestaurantMenu";
 import Checkout from "./Components/Checkout";
+import Address from "./Components/Address";
 
 function App() {
   useEffect(() => {
@@ -31,6 +32,7 @@ function App() {
           <Route path="/home" element={<Home />}></Route>
           <Route path="/restaurantMenu" element={<RestaurantMenu />}></Route>
           <Route path = "/checkout" element={<Checkout />}></Route>
+          <Route path="/address" element={<Address />}></Route>
         </Routes>
       </div>
     </BrowserRouter>

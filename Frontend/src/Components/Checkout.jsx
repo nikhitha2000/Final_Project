@@ -23,7 +23,7 @@ function Checkout() {
   const [thirdMenu, setThirdMenu] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
   const location = useLocation();
-  const { cart } = location.state || {};
+  const [cart, setCart] = useState([]);
   const navigate = useNavigate();
   const totalValue = cart.reduce(
     (total, item) =>
@@ -32,6 +32,11 @@ function Checkout() {
   );
   const salesTax = totalValue > 100 ? 10 : 0;
   const subtotal = totalValue + salesTax;
+  useEffect(() => {
+    if (location.state && location.state.cart) {
+      setCart(location.state.cart);
+    }
+  }, [location.state]);
   useEffect(() => {
     axios
       .get("http://localhost:5000/api/auth/restaurants")
@@ -42,6 +47,18 @@ function Checkout() {
         console.error("Error fetching restaurant images:", error);
       });
   }, []);
+  useEffect(() => {
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
+    }
+  }, []);
+  
+  useEffect(() => {
+    if (cart.length > 0) {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  }, [cart]);
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
     if (storedUsername) {
@@ -171,7 +188,7 @@ function Checkout() {
           <div className={styles.orderSummary}>
             <div className={styles.imageContainer}>
               <img src={Label} className={styles.Label} alt="label" />
-              <img src={Arrow} className={styles.Arrow} alt="arrow" />
+              <img src={Arrow} className={styles.Arrow} alt="arrow" onClick={()=>navigate("/address")}/>
             </div>
             <hr />
             <p className={styles.calculation}>Items:₹{totalValue}</p>

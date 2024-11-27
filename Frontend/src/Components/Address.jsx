@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "../Components/Address.module.css";
 import logo from "../assets/LOGO 1.png";
 import caart from "../assets/Group 58.png";
@@ -9,6 +9,12 @@ import arrowleft from "../assets/arrow-left.png";
 import { useNavigate } from "react-router-dom";
 import location1 from "../assets/location1.png";
 import add from "../assets/Frame 100.png";
+import logo2 from "../assets/LOGO 2.png";
+import appstore from "../assets/appstore.png";
+import facebookIcon from "../assets/Facebook.png";
+import instagramIcon from "../assets/Instagram.png";
+import tiktokIcon from "../assets/Tiktok.png";
+import SnapchatIcon from "../assets/Snapchat.png";
 function Address() {
   const [isCartVisible, setCartVisible] = useState(false);
   const [username, setUsername] = useState("");
@@ -24,7 +30,7 @@ function Address() {
   }, []);
   const handleAddAddress = (e) => {
     e.preventDefault();
-  
+
     const formData = new FormData(formRef.current);
     const newAddress = {
       state: formData.get("state"),
@@ -33,22 +39,22 @@ function Address() {
       phoneNumber: formData.get("phoneNumber"),
       fullAddress: formData.get("fullAddress"),
     };
-  
+
     setAddresses([...addresses, newAddress]);
     setModalOpen(false);
   };
   const renderAddressCards = () => {
     return addresses.map((address, index) => (
       <div className={styles.addressCard} key={index}>
-        <div >
-        <h3>{address.name}</h3>
+        <div>
+          <h3>{address.name}</h3>
         </div>
         <p>{address.fullAddress}</p>
         <p>
           {address.state}, {address.city}, {address.pinCode}
         </p>
         <p>Phone Number:{address.phoneNumber}</p>
-        
+
         <div className={styles.addressActions}>
           <button>Edit</button>
           <button>Remove</button>
@@ -142,7 +148,7 @@ function Address() {
               <img src={location1} alt="Add Address" className={styles.loc} />
               <h2>Add New Address</h2>
             </div>
-            <form ref={formRef}onSubmit={handleAddAddress}>
+            <form ref={formRef} onSubmit={handleAddAddress}>
               <input
                 type="text"
                 name="state"
@@ -173,16 +179,123 @@ function Address() {
                 placeholder="Enter Full address"
                 className={styles.fulladdress}
               ></textarea>
-              <button
-                type="submit"
-                className={styles.save}
-              >
+              <button type="submit" className={styles.save}>
                 Save
               </button>
             </form>
           </div>
         </div>
       )}
+      <div className={styles.footer}>
+        <div className={styles.footerContainer}>
+          <div className={styles.leftSection}>
+            <img src={logo2} alt="Order UK Logo" className={styles.logo2} />
+            <div className={styles.appStoreSection}>
+              <img
+                src={appstore}
+                alt="Download on the App Store"
+                className={styles.appStoreImage}
+              />
+            </div>
+            <div className={styles.companyInfo}>
+              <span>Company # 490039-445, Registered with</span>
+              <br />
+              <span>House of companies.</span>
+            </div>
+          </div>
+
+          <div className={styles.centerSection}>
+            <h4>Get Exclusive Deals in your Inbox</h4>
+            <div className={styles.subscribe}>
+              <input
+                type="email"
+                placeholder="your@email.com"
+                className={styles.emailInput}
+              />
+              <button className={styles.subscribeButton}>Subscribe</button>
+            </div>
+            <p className={styles.policyText}>
+              We won&apos;t spam, read our{" "}
+              <a href="#privacy-policy">email policy</a>
+            </p>
+            <div className={styles.socialIcons}>
+              <a href="#facebook">
+                <img
+                  src={facebookIcon}
+                  alt="Facebook"
+                  className={styles.socialIcon}
+                />
+              </a>
+              <a href="#instagram">
+                <img
+                  src={instagramIcon}
+                  alt="Instagram"
+                  className={styles.socialIcon}
+                />
+              </a>
+              <a href="#tiktok">
+                <img
+                  src={tiktokIcon}
+                  alt="TikTok"
+                  className={styles.socialIcon}
+                />
+              </a>
+              <a href="#snapchat">
+                <img
+                  src={SnapchatIcon}
+                  alt="Snapchat"
+                  className={styles.socialIcon}
+                />
+              </a>
+            </div>
+          </div>
+
+          <div className={styles.rightSection}>
+            <ul className={styles.legalLinks}>
+              <h4>Legal Pages</h4>
+              <li>
+                <a href="#terms">Terms and Conditions</a>
+              </li>
+              <li>
+                <a href="#privacy">Privacy</a>
+              </li>
+              <li>
+                <a href="#cookies">Cookies</a>
+              </li>
+              <li>
+                <a href="#modern-slavery">Modern Slavery Statement</a>
+              </li>
+            </ul>
+
+            <ul className={styles.legalLinks}>
+              <h4>Important Links</h4>
+              <li>
+                <a href="#help">Get Help</a>
+              </li>
+              <li>
+                <a href="#add-restaurant">Add your restaurant</a>
+              </li>
+              <li>
+                <a href="#sign-up-deliver">Sign up to deliver</a>
+              </li>
+              <li>
+                <a href="#create-business">Create a business account</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className={styles.footerBottom}>
+        <p>Order.uk Copyright 2024. All Rights Reserved.</p>
+        <div className={styles.footerLinks}>
+          <a href="#privacy-policy">Privacy Policy</a>
+          <a href="#terms">Terms</a>
+          <a href="#pitching">Pitching</a>
+          <a href="#do-not-sell">
+            Do not sell or share my personal information
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

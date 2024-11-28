@@ -32,6 +32,12 @@ function Checkout() {
   );
   const salesTax = totalValue > 100 ? 10 : 0;
   const subtotal = totalValue + salesTax;
+  const handlePayment = () => {
+    setCart([]); 
+    localStorage.removeItem("cart"); 
+    navigate("/payment", { state: { subtotal,cart } });
+  };
+  
   useEffect(() => {
     if (location.state && location.state.cart) {
       setCart(location.state.cart);
@@ -195,7 +201,7 @@ function Checkout() {
             <p className={styles.calculation}>Sales Tax: ₹{salesTax}</p>
             <hr />
             <p className={styles.subtotal}>Subtotal: ₹{subtotal}</p>
-            <button className={styles.payment} onClick={()=>navigate("/payment",{state: { subtotal }})}>Choose Payment Method</button>
+            <button className={styles.payment} onClick={()=>(handlePayment())}>Choose Payment Method</button>
           </div>
         </div>
       </div>

@@ -24,13 +24,21 @@ function Payment() {
   const [isCartVisible, setCartVisible] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const { subtotal } = location.state || {};
+  const { subtotal,cart } = location.state || {};
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
     if (storedUsername) {
       setUsername(storedUsername);
     }
   }, []);
+const handleOrderCompletion = () => {
+    navigate("/success", {
+      state: {
+        cart: cart,
+      }
+    });
+  };
+  
   return (
     <div>
       <header className="header">
@@ -123,7 +131,7 @@ function Payment() {
             <p className={styles.total}>₹{subtotal}</p>
           </div>
           <hr />
-          <button className={styles.proceedbutton}onClick={()=>navigate("/success")}>Proceed Payment</button>
+          <button className={styles.proceedbutton}onClick={()=>handleOrderCompletion()}>Proceed Payment</button>
         </div>
       </div>
       <hr />

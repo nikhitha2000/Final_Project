@@ -1,0 +1,327 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "sans-serif";
+}
+
+.location {
+  background-color: #fafafa;
+  border: 1px solid #000000;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  margin: 0 5rem;
+}
+.cart {
+  width: 14rem;
+  margin-left: 15.25rem;
+  cursor: pointer;
+}
+.offer {
+  margin-left: 2rem;
+  font-weight: 500;
+  font-size: 15px;
+}
+.offer a {
+  font-weight: 700;
+  color: #fc8a06;
+  font-size: 13px;
+}
+.add {
+  margin-left: 10rem;
+  font-weight: 500;
+  font-size: 15px;
+}
+.addres {
+  width: 3rem;
+  height: 3rem;
+}
+.changelocation {
+  font-weight: 500;
+  color: #fc8a06;
+  font-size: 12px;
+}
+.logo {
+  margin-left: 4rem;
+  margin-top: 1rem;
+}
+.logoContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.navLinks {
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 1;
+  margin-top: 1rem;
+}
+
+.navList {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  gap: 3rem;
+}
+
+.navItem {
+  text-decoration: none;
+  color: #03081f;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0 1rem;
+  transition: color 0.3s ease;
+}
+.navLastItem {
+  background-color: #03081f;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 120px;
+  padding: 0.7rem 2rem;
+  font-weight: 500;
+  font-size: 16px;
+}
+.arrowleft {
+  margin-left: 3rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+.Address {
+  display: flex;
+}
+.Address h2 {
+  margin-top: 2rem;
+}
+.walletsection{
+    display: flex;
+    justify-content: space-between;
+}
+.walletContainer {
+  display: flex;
+  justify-content: flex-start;
+  border: 2px solid brown;
+  width: 60%;
+  margin-top: 2rem;
+  margin-left: 3rem;
+  border: 1px solid #ffe8ce;
+  border-radius: 56px;
+}
+.walleticon {
+  width: 5rem;
+  margin-left: 2rem;
+  height: 5rem;
+}
+.walletinfo p {
+  font-weight: 500;
+  font-size: 1rem;
+}
+.walletinfo span {
+  color: #83858a;
+}
+.rightarrow {
+  width: 3rem;
+  height: 3rem;
+  margin-left: 30rem;
+  margin-top: 1rem;
+}
+hr {
+  border: 1px solid #000000;
+  margin-top: 2rem;
+  width: 60%;
+  margin-left: 3rem;
+}
+.mastercarddiv,
+.paypaldiv,
+.stripediv{
+  display: flex;
+  margin-left: 4rem;
+  margin-top: 2rem;
+  border: 1px solid #ffe8ce;
+  border-radius: 100px;
+  width: 60%;
+}
+.adddiv {
+  cursor: pointer;
+  margin-top: 1rem;
+  display: flex;
+  margin-left: 4rem;
+  border: 1px solid #ffe8ce;
+  border-radius: 100px;
+  width: 60%;
+}
+.mcicon,
+.paypalicon,
+.stripeicon,
+.addbutton {
+  margin-left: 2rem;
+  width: 2rem;
+}
+.mastercarddiv p,
+.paypaldiv p,
+.stripediv p,
+.adddiv p {
+  margin-left: 1rem;
+  font-weight: 400;
+}
+.mastercardradio {
+  margin-left: 38rem;
+}
+.paypalradio {
+  margin-left: 40rem;
+}
+.striperadio {
+  margin-left: 40.75rem;
+}
+.amountpaysection{
+    width: 35%;
+    border: 1px solid #000000;
+    border-radius: 12px;
+    margin-top: 2rem;
+}
+.amountpaysection p{
+    margin-left: 2rem;
+    color: #83858A;
+}
+.amount{
+    display: flex;
+    justify-content: space-between;
+}
+.pay{
+    margin-top: 2rem;
+    color: #83858A;
+}
+.total{
+    color: #000000;
+    font-weight: 700;
+    margin-top: 2rem;
+}
+.proceedbutton{
+    background-color: #fc8a06;
+    border: none;
+    border-radius: 100px;
+    padding: 0.50rem 7rem;
+    color: #ffffff;
+    margin-left: 4rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+.footer {
+  background-color: #d9d9d9;
+}
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.leftSection {
+  padding-left: 3rem;
+  padding-top: 0rem;
+}
+.companyInfo {
+  font-size: 14px;
+  font-family: "Poppins", "sans-serif";
+  font-weight: 400;
+}
+.logo2 {
+  width: 16rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+.appStoreImage {
+  margin-bottom: 1rem;
+}
+.centerSection h4 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 2rem;
+  color: #03081f;
+  margin-bottom: 2rem;
+}
+.emailInput {
+  border-radius: 120px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 10px;
+  width: 15rem;
+  border: none;
+}
+.subscribe {
+  margin-bottom: 1rem;
+}
+.subscribeButton {
+  background-color: #fc8a06;
+  color: #ffffff;
+  border-radius: 120px;
+  border: none;
+  width: 7rem;
+  padding: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+.policyText {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #03081f;
+  margin-bottom: 1rem;
+}
+.policyText a {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #03081f;
+}
+.socialIcon {
+  margin-left: 1rem;
+}
+.rightSection {
+  display: flex;
+  justify-content: space-around;
+}
+.rightSection h4 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+.legalLinks {
+  margin-top: 3rem;
+  list-style-type: none;
+  margin-left: 1rem;
+}
+.legalLinks a {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #000000;
+  margin-left: 4rem;
+  margin-bottom: 2rem;
+}
+.footerBottom {
+  background-color: #03081f;
+  display: flex;
+  justify-content: space-around;
+  gap: 10rem;
+}
+.footerBottom p {
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  margin: 1rem 0;
+}
+.footerLinks {
+  margin: 1rem 0;
+}
+.footerLinks a {
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #ffffff;
+  margin-right: 2rem;
+}

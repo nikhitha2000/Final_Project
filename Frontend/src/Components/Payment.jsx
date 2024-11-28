@@ -1,88 +1,38 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
-import styles from "../Components/Checkout.module.css";
-import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
+import styles from "../Components/Payment.module.css";
 import logo from "../assets/LOGO 1.png";
 import caart from "../assets/Group 58.png";
 import user from "../assets/User.png";
 import loocation from "../assets/Location.png";
+import arrowleft from "../assets/arrow-left.png";
+import { useNavigate,useLocation } from "react-router-dom";
+import walleticon from "../assets/walleticon.png";
+import Rightarrow from "../assets/ArrowRight.png";
+import mastercard from "../assets/Mastercard.png";
+import paypal from "../assets/Paypal.png";
+import stripe from "../assets/Stripe.png";
+import add1 from "../assets/add1.png";
 import logo2 from "../assets/LOGO 2.png";
 import appstore from "../assets/appstore.png";
 import facebookIcon from "../assets/Facebook.png";
 import instagramIcon from "../assets/Instagram.png";
 import tiktokIcon from "../assets/Tiktok.png";
 import SnapchatIcon from "../assets/Snapchat.png";
-import head from "../assets/Frame 97.png";
-import Label from "../assets/Label.png";
-import Arrow from "../assets/ArrowRight.png";
-function Checkout() {
-  const [isCartVisible, setCartVisible] = useState(false);
+function Payment() {
   const [username, setUsername] = useState("");
-  const [secondMenu, setSecondMenu] = useState([]);
-  const [thirdMenu, setThirdMenu] = useState([]);
-  const [restaurants, setRestaurants] = useState([]);
-  const location = useLocation();
-  const [cart, setCart] = useState([]);
+  const [isCartVisible, setCartVisible] = useState(false);
   const navigate = useNavigate();
-  const totalValue = cart.reduce(
-    (total, item) =>
-      total + parseFloat(item.price.replace("₹", "").trim()) * item.quantity,
-    0
-  );
-  const salesTax = totalValue > 100 ? 10 : 0;
-  const subtotal = totalValue + salesTax;
-  useEffect(() => {
-    if (location.state && location.state.cart) {
-      setCart(location.state.cart);
-    }
-  }, [location.state]);
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/auth/restaurants")
-      .then((response) => {
-        setRestaurants(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching restaurant images:", error);
-      });
-  }, []);
-  useEffect(() => {
-    const storedCart = localStorage.getItem('cart');
-    if (storedCart) {
-      setCart(JSON.parse(storedCart));
-    }
-  }, []);
-  
-  useEffect(() => {
-    if (cart.length > 0) {
-      localStorage.setItem('cart', JSON.stringify(cart));
-    }
-  }, [cart]);
+  const location = useLocation();
+  const { subtotal } = location.state || {};
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
     if (storedUsername) {
       setUsername(storedUsername);
     }
   }, []);
-  const handleRestaurantClick = () => {
-    navigate("/restaurantMenu");
-  };
-  useEffect(() => {
-    Promise.all([
-      axios.get("http://localhost:5000/api/auth/menu1"),
-      axios.get("http://localhost:5000/api/auth/menu2"),
-    ])
-      .then(([responseMenu1, responseMenu2]) => {
-        setSecondMenu(responseMenu1.data);
-        setThirdMenu(responseMenu2.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching menu items:", error);
-      });
-  }, []);
   return (
-    <div className={styles.homecontainer}>
+    <div>
       <header className="header">
         <div className={styles.location}>
           <span className={styles.offer}>
@@ -133,7 +83,7 @@ function Checkout() {
               </li>
               <li>
                 <a href="#" className={styles.navLastItem}>
-                  <img src={user} className={styles.user}></img> Hey{" "}
+                  <img src={user} className={styles.user}></img> Hey
                   {username ? username : "Guest"}
                 </a>
               </li>
@@ -141,86 +91,83 @@ function Checkout() {
           </nav>
         </div>
       </header>
-      <div>
+      <div className={styles.Address}>
         <img
-          src={head}
-          alt="heading"
-          className={styles.head}
-          onClick={() => navigate("/restaurantMenu")}
-        ></img>
-        <div className={styles.orderContainer}>
-          <div className={styles.orderDetails}>
-            <div className={styles.orderItems}>
-              {cart && cart.length > 0 ? (
-                cart.map((item, index) => (
-                  <div key={index} className={styles.orderItem}>
-                    <div className={styles.items}>
-                      <img
-                        src={item.imageUrl}
-                        alt={item.name}
-                        className={styles.itemImage}
-                      />
-                      <div>
-                        <p className={styles.name}>{item.name}</p>
-                        <span className={styles.quantity}>
-                          {item.quantity}x items
-                        </span>
-                      </div>
-                    </div>
-                    <div>
-                      <p className={styles.price}>
-                        ₹{parseInt(item.price.replace("₹", "").trim(), 10)}
-                      </p>
-                    </div>
-                    <hr />
-                  </div>
-                ))
-              ) : (
-                <p>Your cart is empty.</p>
-              )}
-              <input
-                type="text"
-                className={styles.input}
-                placeholder="Add Order Notes"
-              ></input>
-            </div>
+          src={arrowleft}
+          className={styles.arrowleft}
+          alt="left"
+          onClick={() => navigate("/checkout")}
+        />
+        <h2>Choose and Pay</h2>
+      </div>
+      <div className={styles.walletsection}>
+        <div className={styles.walletContainer}>
+          <img
+            src={walleticon}
+            className={styles.walleticon}
+            alt="walleticon"
+          ></img>
+          <div className={styles.walletinfo}>
+            <p>Wallet</p>
+            <span>Available balance: ₹300</span>
           </div>
-          <div className={styles.orderSummary}>
-            <div className={styles.imageContainer}>
-              <img src={Label} className={styles.Label} alt="label" />
-              <img src={Arrow} className={styles.Arrow} alt="arrow" onClick={()=>navigate("/address")}/>
-            </div>
-            <hr />
-            <p className={styles.calculation}>Items:₹{totalValue}</p>
-            <p className={styles.calculation}>Sales Tax: ₹{salesTax}</p>
-            <hr />
-            <p className={styles.subtotal}>Subtotal: ₹{subtotal}</p>
-            <button className={styles.payment} onClick={()=>navigate("/payment",{state: { subtotal }})}>Choose Payment Method</button>
+          <img
+            src={Rightarrow}
+            className={styles.rightarrow}
+            alt="rightarrow"
+          ></img>
+        </div>
+        <div className={styles.amountpaysection}>
+          <div className={styles.amount}>
+            <p className={styles.pay}>Amount to be payed</p>
+            <p className={styles.total}>₹{subtotal}</p>
           </div>
+          <hr />
+          <button className={styles.proceedbutton}onClick={()=>navigate("/success")}>Proceed Payment</button>
         </div>
       </div>
-      <section className={styles.similarrestaurantssection}>
-        <h3 className={styles.similarres}>Similar Restaurants</h3>
-        <div className={styles.restaurantList}>
-          {restaurants.length > 0 ? (
-            restaurants.map((url, index) => (
-              <div
-                key={index}
-                className={styles.restaurantItem}
-                onClick={() => handleRestaurantClick(index)}
-              >
-                <img
-                  src={url}
-                  alt={`Restaurant ${index + 1}`}
-                  className={styles.restaurantImage}
-                />
-              </div>
-            ))
-          ) : (
-            <p>Loading restaurants...</p>
-          )}
+      <hr />
+      <div className={styles.cardtypes}>
+        <div className={styles.mastercarddiv}>
+          <img src={mastercard} className={styles.mcicon} alt="mcicon"></img>
+          <p>Masterkard</p>
+          <input
+            type="radio"
+            name="masterkard"
+            className={styles.mastercardradio}
+          ></input>
         </div>
-      </section>
+        <div className={styles.paypaldiv}>
+          <img
+            src={paypal}
+            className={styles.paypalicon}
+            alt="paypalicon"
+          ></img>
+          <p>paypal</p>
+          <input
+            type="radio"
+            name="masterkard"
+            className={styles.paypalradio}
+          ></input>
+        </div>
+        <div className={styles.stripediv}>
+          <img
+            src={stripe}
+            className={styles.stripeicon}
+            alt="stripeicon"
+          ></img>
+          <p>stripe</p>
+          <input
+            type="radio"
+            name="masterkard"
+            className={styles.striperadio}
+          ></input>
+        </div>
+        <div className={styles.adddiv}>
+          <img src={add1} className={styles.addbutton} alt="add" />
+          <p>Add Debit Card</p>
+        </div>
+      </div>
       <div className={styles.footer}>
         <div className={styles.footerContainer}>
           <div className={styles.leftSection}>
@@ -250,7 +197,8 @@ function Checkout() {
               <button className={styles.subscribeButton}>Subscribe</button>
             </div>
             <p className={styles.policyText}>
-              We won&apos;t spam, read our <a href="#privacy-policy">email policy</a>
+              We won&apos;t spam, read our{" "}
+              <a href="#privacy-policy">email policy</a>
             </p>
             <div className={styles.socialIcons}>
               <a href="#facebook">
@@ -334,4 +282,4 @@ function Checkout() {
   );
 }
 
-export default Checkout;
+export default Payment;

@@ -9,6 +9,7 @@ import Checkout from "./Components/Checkout";
 import Address from "./Components/Address";
 import Payment from "./Components/Payment";
 import Success from "./Components/Success";
+import Profile from "./Components/Profile";
 function App() {
   useEffect(() => {
     const handleClearLocalStorage = () => {
@@ -32,6 +33,7 @@ function App() {
           <Route path="/address" element={<Address />}></Route>
           <Route path="/payment" element={<Payment />}></Route>
           <Route path="/success" element={<Success />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
         </Routes>
       </div>
     </BrowserRouter>

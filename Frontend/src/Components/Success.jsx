@@ -80,7 +80,7 @@ function Success() {
                 </a>
               </li>
               <li>
-                <a href="#" className={styles.navLastItem}>
+                <a href="#" className={styles.navLastItem}onClick={()=>navigate("/profile")}>
                   <img src={user} className={styles.user}></img> Hey
                   {username ? username : "Guest"}
                 </a>

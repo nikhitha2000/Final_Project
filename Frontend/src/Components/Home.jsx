@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import logo from "../assets/LOGO 1.png";
 import styles from "../Components/Home.module.css";
-import location from "../assets/location.png";
+import location from "../assets/Location.png";
 import user from "../assets/User.png";
 import pizza from "../assets/Untitled.png";
 import eat from "../assets/Untitled2.png";

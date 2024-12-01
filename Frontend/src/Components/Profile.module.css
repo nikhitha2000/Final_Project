@@ -196,48 +196,164 @@
   max-width: 770px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-.paymentinput{
-    width: 70%;
-    margin-left: 1rem;
-    border: 2px solid #AFAFAF;
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
-    margin-top: 1rem;
+.paymentinput {
+  width: 70%;
+  margin-left: 1rem;
+  border: 2px solid #afafaf;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-top: 1rem;
 }
-.modalContent label{
-    margin-right: 4rem;
+.modalContent label {
+  margin-right: 4rem;
 }
-.modalActions{
-    background-color: #fc8a06;
-    margin-top: 2rem;
-    display: flex;
-    justify-content: space-between;
-    box-shadow: 4px 4px 40.8px 0px #00000040;
-    border-radius: 12px;
+.modalActions {
+  background-color: #fc8a06;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 4px 4px 40.8px 0px #00000040;
+  border-radius: 12px;
 }
-.removeButton{
-    background-color:#663700;
-    color: #ffffff;
-    padding: 0.75rem 1rem;
-    margin-left: 1rem;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
+.removeButton {
+  background-color: #663700;
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  margin-left: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
 }
-.buttons{
-    display: flex;
-    justify-content: space-around;
+.buttons {
+  display: flex;
+  justify-content: space-around;
 }
-.cancelButton{
-    color: #ffffff;
-    margin-right: 2rem;
-    cursor: pointer;
+.cancelButton {
+  color: #ffffff;
+  margin-right: 2rem;
+  cursor: pointer;
 }
-.saveButton{
-    border: none;
-    border-radius: 12px;
-    color: #000000;
-    background-color: #ffffff;
-    padding: 0.75rem 1rem ;
-    cursor: pointer;
+.saveButton {
+  border: none;
+  border-radius: 12px;
+  color: #000000;
+  background-color: #ffffff;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+}
+.footer {
+  background-color: #d9d9d9;
+}
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.leftSection {
+  padding-left: 3rem;
+  padding-top: 0rem;
+}
+.companyInfo {
+  font-size: 14px;
+  font-family: "Poppins", "sans-serif";
+  font-weight: 400;
+}
+.logo2 {
+  width: 16rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+.appStoreImage {
+  margin-bottom: 1rem;
+}
+.centerSection h4 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 2rem;
+  color: #03081f;
+  margin-bottom: 2rem;
+}
+.emailInput {
+  border-radius: 120px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 10px;
+  width: 15rem;
+  border: none;
+}
+.subscribe {
+  margin-bottom: 1rem;
+}
+.subscribeButton {
+  background-color: #fc8a06;
+  color: #ffffff;
+  border-radius: 120px;
+  border: none;
+  width: 7rem;
+  padding: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+.policyText {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #03081f;
+  margin-bottom: 1rem;
+}
+.policyText a {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #03081f;
+}
+.socialIcon {
+  margin-left: 1rem;
+}
+.rightSection {
+  display: flex;
+  justify-content: space-around;
+}
+.rightSection h4 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+.legalLinks {
+  margin-top: 3rem;
+  list-style-type: none;
+  margin-left: 1rem;
+}
+.legalLinks a {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #000000;
+  margin-left: 4rem;
+  margin-bottom: 2rem;
+}
+.footerBottom {
+  background-color: #03081f;
+  display: flex;
+  justify-content: space-around;
+  gap: 10rem;
+}
+.footerBottom p {
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  margin: 1rem 0;
+}
+.footerLinks {
+  margin: 1rem 0;
+}
+.footerLinks a {
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #ffffff;
+  margin-right: 2rem;
 }

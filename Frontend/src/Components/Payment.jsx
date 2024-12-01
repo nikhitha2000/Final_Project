@@ -17,7 +17,7 @@ import logo2 from "../assets/LOGO 2.png";
 import appstore from "../assets/appstore.png";
 import facebookIcon from "../assets/Facebook.png";
 import instagramIcon from "../assets/Instagram.png";
-import tiktokIcon from "../assets/Tiktok.png";
+import tiktokIcon from "../assets/TikTok.png";
 import SnapchatIcon from "../assets/Snapchat.png";
 function Payment() {
   const [username, setUsername] = useState("");

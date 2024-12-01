@@ -4,7 +4,7 @@ import styles from "../Components/RestaurantMenu.module.css";
 import axios from "axios";
 import logo from "../assets/LOGO 1.png";
 import user from "../assets/User.png";
-import location from "../assets/location.png";
+import location from "../assets/Location.png";
 import resbg from "../assets/resbg.png";
 import ordercompleted from "../assets/Order Completed.png";
 import Motocross from "../assets/Motocross.png";

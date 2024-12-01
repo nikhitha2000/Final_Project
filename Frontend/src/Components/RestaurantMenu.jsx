@@ -72,7 +72,7 @@ function RestaurantMenu() {
     setCartVisible(true);
   };
   const removeItemFromCart = (itemToRemove) => {
-    setCart(cart.filter(item => item.name !== itemToRemove.name));
+    setCart((prevCart) => prevCart.filter(item => item.name !== itemToRemove.name));
   };
   useEffect(() => {
     axios
@@ -107,7 +107,9 @@ function RestaurantMenu() {
   const filteredItems = menuItems.filter((item) => 
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
+  const removeCurrencySymbol = (price) => {
+    return parseFloat(price.replace(/[^\d.-]/g, ''));
+  };
   const handleSearchChange = (e) => {
     setsearchTerm(e.target.value);
   };
@@ -144,7 +146,7 @@ function RestaurantMenu() {
                 <div key={index} className={styles.cartItem}>
                   <p>{item.name}</p>
                   <p>Quantity: {item.quantity}x</p>
-                  <p>Price: {item.price} x {item.quantity} = {item.price * item.quantity}</p>
+                  <p>Price: ₹{removeCurrencySymbol(item.price)} x {item.quantity} = ₹{removeCurrencySymbol(item.price) * item.quantity}</p>
                   <img
                   src={deleteIcon}
                   alt="Delete"
@@ -159,12 +161,12 @@ function RestaurantMenu() {
           </div>
           <div className={styles.cartTotal}>
             <p>
-              Total: ₹
-              {carrt.reduce((total, item) => total + item.price * item.quantity, 0)}
+            Total: ₹
+            {carrt.reduce((total, item) => total + removeCurrencySymbol(item.price) * item.quantity, 0)}
             </p>
           </div>
           <div className={styles.checkout}>
-            <button onClick={handleCheckout}>Checkout</button>
+            <button onClick={handleCheckout}className={styles.checkoutbutton}>Checkout</button>
             </div>
         </section>
       )

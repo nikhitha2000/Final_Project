@@ -424,7 +424,9 @@
   font-weight: 600;
   margin-top: 2rem;
 }
-
+.deleteIcon{
+  cursor: pointer;
+}
 .leftarrow, .rightarrow {
   cursor: pointer;
   width: 30px;
@@ -452,7 +454,15 @@
   border-bottom: 1px solid #ccc;
   padding: 10px 0;
 }
-
+.checkoutbutton{
+  background-color:#028643;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 6rem;
+  color: #ffffff;
+  cursor: pointer;
+}
 .cartItem p {
   margin: 5px 0;
 }
